@@ -7,10 +7,29 @@
 
 ## Usage
 
-Add this in your build.gradle file
+### 1.Add this in your build.gradle file
 
 ```gradle
 compile 'com.oginotihiro:cropview:1.0.0'
+```
+
+### 2.Add it on your layout
+```xml
+<com.oginotihiro.cropview.CropView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+```
+
+### 3.start crop
+```java
+CropView cropView = (CropView) findViewById(R.id.cropView);
+cropView.of(Uri srouceUri).withAspect(int x, int y).withOutputSize(int widht, int height).initialize(Context context);
+```
+
+### 4.get cropped bitmap
+```java
+Bitmap croppedBitmap = cropView.getOutput();
+CropUtil.saveOutput(Context context, Uri saveUri, Bitmap croppedImage, int quality)
 ```
 
 ## Compatibility
