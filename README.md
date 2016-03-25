@@ -1,4 +1,17 @@
 # cropview
+<img src="https://raw.githubusercontent.com/oginotihiro/cropview/master/screenshots/sample1.png" width="260" />
+<img src="https://raw.githubusercontent.com/oginotihiro/cropview/master/screenshots/sample2.png" width="260" />
+<img src="https://raw.githubusercontent.com/oginotihiro/cropview/master/screenshots/sample3.png" width="260" />
+<img src="https://raw.githubusercontent.com/oginotihiro/cropview/master/screenshots/sample4.png" width="260" />
+<img src="https://raw.githubusercontent.com/oginotihiro/cropview/master/screenshots/sample5.png" width="260" />
+
+## Usage
+
+Add this in your build.gradle file
+
+```gradle
+compile 'com.oginotihiro:cropview:1.0.0'
+```
 
 ## Compatibility
 
