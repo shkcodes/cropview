@@ -24,16 +24,16 @@ compile 'com.oginotihiro:cropview:1.0.0'
 ### 3.start crop
 ```java
 CropView cropView = (CropView) findViewById(R.id.cropView);
-cropView.of(Uri srouceUri)
-        .withAspect(int x, int y)
-        .withOutputSize(int widht, int height)
-        .initialize(Context context);
+cropView.of(srouceUri)
+        .withAspect(x, y)
+        .withOutputSize(widht, height)
+        .initialize(context);
 ```
 
 ### 4.get cropped bitmap
 ```java
 Bitmap croppedBitmap = cropView.getOutput();
-CropUtil.saveOutput(Context context, Uri saveUri, Bitmap croppedImage, int quality)
+CropUtil.saveOutput(context, saveUri, croppedImage, quality)
 ```
 
 ## Compatibility
