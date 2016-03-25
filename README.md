@@ -32,7 +32,7 @@ cropView.of(srouceUri)
 4.Get cropped bitmap
 ```java
 Bitmap croppedBitmap = cropView.getOutput();
-CropUtil.saveOutput(context, saveUri, croppedImage, quality)
+CropUtil.saveOutput(context, saveUri, croppedImage, quality);
 ```
 
 ## Compatibility
