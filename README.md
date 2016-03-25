@@ -12,7 +12,7 @@
 compile 'com.oginotihiro:cropview:1.0.0'
 ```
 
-2.Add it on your layout
+2.Add it to your layout
 ```xml
 <com.oginotihiro.cropview.CropView
      android:layout_width="match_parent"
