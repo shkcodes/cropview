@@ -16,14 +16,18 @@ compile 'com.oginotihiro:cropview:1.0.0'
 ### 2.Add it on your layout
 ```xml
 <com.oginotihiro.cropview.CropView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:id="@+id/cropView" />
 ```
 
 ### 3.start crop
 ```java
 CropView cropView = (CropView) findViewById(R.id.cropView);
-cropView.of(Uri srouceUri).withAspect(int x, int y).withOutputSize(int widht, int height).initialize(Context context);
+cropView.of(Uri srouceUri)
+        .withAspect(int x, int y)
+        .withOutputSize(int widht, int height)
+        .initialize(Context context);
 ```
 
 ### 4.get cropped bitmap
