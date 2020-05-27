@@ -20,6 +20,7 @@ import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_UP;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -82,7 +83,8 @@ public class CropView extends ImageView implements ViewTreeObserver.OnGlobalLayo
     private final Paint outlinePaint = new Paint();
     private final Paint outsidePaint = new Paint();
 
-    private int highlightColor = Color.WHITE;
+    private int highlightColor;
+    private int outsideColor;
 
     private Path path = new Path();
     private Rect viewDrawingRect = new Rect();
@@ -178,6 +180,10 @@ public class CropView extends ImageView implements ViewTreeObserver.OnGlobalLayo
 
     public CropView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CropView, 0, 0);
+
+        highlightColor = a.getColor(R.styleable.CropView_outline_color, Color.WHITE);
+        outsideColor = a.getColor(R.styleable.CropView_outside_color, Color.argb(125, 50, 50, 50));
 
         setScaleType(ScaleType.MATRIX);
 
@@ -190,7 +196,7 @@ public class CropView extends ImageView implements ViewTreeObserver.OnGlobalLayo
         outlinePaint.setColor(highlightColor);
         outlinePaint.setStyle(Paint.Style.STROKE);
         outlinePaint.setStrokeWidth(dpToPx(OUTLINE_DP));
-        outsidePaint.setARGB(125, 50, 50, 50);
+        outsidePaint.setColor(outsideColor);
 
         ViewTreeObserver observer = getViewTreeObserver();
         if (null != observer) {
