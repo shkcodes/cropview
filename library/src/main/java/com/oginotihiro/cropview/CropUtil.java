@@ -15,6 +15,8 @@
  *******************************************************************************/
 package com.oginotihiro.cropview;
 
+import androidx.exifinterface.media.ExifInterface;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -24,7 +26,6 @@ import android.graphics.Matrix;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
