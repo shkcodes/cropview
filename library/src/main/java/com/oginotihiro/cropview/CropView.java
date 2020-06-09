@@ -133,15 +133,27 @@ public class CropView extends ImageView implements ViewTreeObserver.OnGlobalLayo
                 option.inSampleSize = mSampleSize;
                 RotateBitmap rotateBitmap = new RotateBitmap(BitmapFactory.decodeStream(is, null, option), CropUtil.getExifRotation(imageFile));
 
-                if (rotateBitmap != null) {
-                    setImageRotateBitmap(rotateBitmap);
-                }
+                setImageRotateBitmap(rotateBitmap);
             } catch (IOException e) {
             } catch (OutOfMemoryError e) {
             } finally {
                 CropUtil.closeSilently(is);
             }
         }
+    }
+
+    public void rotateClockwise() {
+        rotateImage((mBitmapDisplayed.getRotation() + 90) % 360);
+    }
+
+    public void rotateAntiClockwise() {
+        rotateImage((mBitmapDisplayed.getRotation() - 90) % 360);
+    }
+
+    private void rotateImage(int rotation) {
+        mBitmapDisplayed.setRotation(rotation);
+        setImageBitmap(mBitmapDisplayed.getBitmap());
+        updateBaseMatrix();
     }
 
     public Bitmap getOutput() {
