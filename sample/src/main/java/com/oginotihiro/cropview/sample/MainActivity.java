@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             cropView.setVisibility(View.VISIBLE);
             btnlay.setVisibility(View.VISIBLE);
 
-            cropView.of(source).asSquare().initialize(MainActivity.this);
+            cropView.of(source, null).asSquare().initialize(MainActivity.this);
         }
     }
 

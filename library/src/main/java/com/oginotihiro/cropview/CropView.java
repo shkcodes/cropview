@@ -90,6 +90,7 @@ public class CropView extends ImageView implements ViewTreeObserver.OnGlobalLayo
     private Rect viewDrawingRect = new Rect();
 
     private Uri mSource;
+    private String mFilePath;
     private int mAspectX = 1;
     private int mAspectY = 1;
     private int mOutputX;
@@ -97,8 +98,9 @@ public class CropView extends ImageView implements ViewTreeObserver.OnGlobalLayo
 
     private int mSampleSize;
 
-    public CropView of(Uri source) {
+    public CropView of(Uri source, String filePath) {
         mSource = source;
+        mFilePath = filePath;
         return this;
     }
 
@@ -122,7 +124,12 @@ public class CropView extends ImageView implements ViewTreeObserver.OnGlobalLayo
 
     public void initialize(Context context) {
         if (mSource != null) {
-            File imageFile = CropUtil.getFromMediaUri(context, mSource);
+            File imageFile;
+            if (mFilePath == null) {
+                imageFile = CropUtil.getFromMediaUri(context, mSource);
+            } else {
+                imageFile = new File(mFilePath);
+            }
 
             InputStream is = null;
             try {
